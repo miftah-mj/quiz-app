@@ -1,12 +1,16 @@
 import { Link } from "react-router";
+import Banner from "../components/Banner";
 
 const Home = () => {
     return (
-        <div style={{ textAlign: "center", marginTop: "50px" }}>
-            <h1>Welcome to the Quiz App</h1>
-            <Link to="/quiz" className="btn btn-soft btn-primary mt-3">
+        <div className="">
+            <Banner />
+
+            <div className="flex justify-center mt-4">
+            <Link to="/quiz" className="btn btn-wide btn-soft btn-primary text-lg">
                 Start Quiz
             </Link>
+            </div>
         </div>
     );
 };
