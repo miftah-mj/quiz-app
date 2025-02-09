@@ -1,4 +1,5 @@
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
     const navLinks = (
@@ -63,10 +64,14 @@ const Navbar = () => {
                         </ul>
                     </div>
 
-                    <NavLink to="/" className="text-2xl font-bold">
+                    <Link
+                        to="/"
+                        className="text-2xl font-bold flex items-center"
+                    >
+                        <img src={logo} alt="logo" className="h-12 w-12" />
                         <span className="text-primary">Quiz</span>
                         <span className="text-secondary">Time</span>
-                    </NavLink>
+                    </Link>
                 </div>
 
                 <div className="navbar-center hidden lg:flex"></div>
