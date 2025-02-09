@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { TbArrowRightToArc } from "react-icons/tb";
+import { Link } from "react-router";
 
 const Quiz = () => {
     const [quizData, setQuizData] = useState([]);
@@ -146,7 +147,7 @@ const Quiz = () => {
 
                             <button
                                 onClick={handleShowSolutions}
-                                className="bg-primary text-white py-2 px-4 rounded mt-4"
+                                className="btn btn-soft btn-primary text-lg mt-4"
                             >
                                 Show Solutions
                             </button>
@@ -157,8 +158,8 @@ const Quiz = () => {
                                 <h2 className="text-2xl text-green-600 font-semibold mb-4 text-center underline">
                                     Solutions
                                 </h2>
-                                {allQuestions.map((question, index) => (
-                                    <div key={index} className="mb-4">
+                                {allQuestions.map((question) => (
+                                    <div key={question.id} className="mb-4">
                                         <h3 className="font-semibold">
                                             {question.description}
                                         </h3>
@@ -171,18 +172,22 @@ const Quiz = () => {
                                                 ).description
                                             }
                                         </p>
+                                        {/* detailed answer btn*/}
+                                        <Link
+                                            to={`/quiz/${question.id}`}
+                                            className="btn btn-soft btn-info text-lg flex items-center gap-2 w-max mt-2"
+                                        >
+                                            View Detailed Solution
+                                            <TbArrowRightToArc size={22} />
+                                        </Link>
+
+                                        {selectedAnswer !== null && (
+                                            <p>Your Answer: {selectedAnswer}</p>
+                                        )}
                                     </div>
                                 ))}
                             </div>
                         )}
-
-                        {/* view detailed solution button */}
-                        <div className="mt-4">
-                            <button className="bg-primary text-white py-2 px-4 rounded flex items-center gap-2">
-                                View Detailed Solution
-                                <TbArrowRightToArc size={22} />
-                            </button>
-                        </div>
                     </div>
                 )}
             </div>
