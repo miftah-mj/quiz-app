@@ -4,6 +4,10 @@
 
 The Quiz App is an interactive application that allows users to take quizzes on various topics. It features a user-friendly interface, real-time feedback, and a scoring system.
 
+## Live Link
+
+[Live Demo](https://quiz-app-b418f.web.app/)
+
 ## Setup Instructions
 
 1. **Clone the repository:**
@@ -36,3 +40,7 @@ The Quiz App is an interactive application that allows users to take quizzes on 
 ### Detailed Solution
 
 ![Detailed Solution](https://i.ibb.co.com/7xFJHD76/detailed-solution.png)
+
+## Video Walkthrough
+
+[![Video Walkthrough](https://i.ibb.co.com/nsZ1gQfZ/homepage.png)](https://drive.google.com/file/d/1kZLlSbGhuM1mGHtJmXc3qrnMQfIHSosY/view?usp=sharing)

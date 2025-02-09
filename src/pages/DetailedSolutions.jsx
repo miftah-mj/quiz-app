@@ -3,6 +3,7 @@ import { AiOutlineRead } from "react-icons/ai";
 import { BiSolidBookContent } from "react-icons/bi";
 import { LuPencilLine } from "react-icons/lu";
 import { useParams } from "react-router";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const DetailedSolutions = () => {
     const { id } = useParams();
@@ -37,7 +38,7 @@ const DetailedSolutions = () => {
     }
 
     if (!quiz) {
-        return <div>Loading...</div>;
+        return <LoadingSpinner />;
     }
 
     // Parse the keywords string into an array

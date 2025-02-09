@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { IoIosArrowDropright } from "react-icons/io";
 import { Link } from "react-router";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const Quiz = () => {
     const [quizData, setQuizData] = useState([]);
@@ -78,7 +79,7 @@ const Quiz = () => {
     };
 
     if (allQuestions.length === 0) {
-        return <div>Loading...</div>;
+        return <LoadingSpinner />;
     }
 
     return (
