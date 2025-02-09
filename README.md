@@ -1,4 +1,4 @@
-# Quiz App
+# QuizTime
 
 ## Project Overview
 
@@ -31,16 +31,16 @@ The Quiz App is an interactive application that allows users to take quizzes on 
 
 ### Home Screen
 
-![Home Screen](https://i.ibb.co.com/nsZ1gQfZ/homepage.png)
+![Home Screen](/public/homepage.png)
 
 ### Quiz Screen
 
-![Quiz Screen](https://i.ibb.co.com/27Hm8pLW/quiz.png)
+![Quiz Screen](/public/quiz.png)
 
 ### Detailed Solution
 
-![Detailed Solution](https://i.ibb.co.com/7xFJHD76/detailed-solution.png)
+![Detailed Solution](/public/detailed-solution.png)
 
 ## Video Walkthrough
 
-[![Video Walkthrough](https://i.ibb.co.com/nsZ1gQfZ/homepage.png)](https://drive.google.com/file/d/1kZLlSbGhuM1mGHtJmXc3qrnMQfIHSosY/view?usp=sharing)
+[!Video Walkthrough](https://drive.google.com/file/d/1kZLlSbGhuM1mGHtJmXc3qrnMQfIHSosY/view?usp=sharing)
