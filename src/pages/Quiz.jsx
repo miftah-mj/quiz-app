@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { TbArrowRightToArc } from "react-icons/tb";
+import { IoIosArrowDropright } from "react-icons/io";
 import { Link } from "react-router";
 
 const Quiz = () => {
@@ -11,6 +11,8 @@ const Quiz = () => {
     const [correctAnswers, setCorrectAnswers] = useState(0);
     const [wrongAnswers, setWrongAnswers] = useState(0);
     const [showSolutions, setShowSolutions] = useState(false);
+
+    const currentQuestion = allQuestions[currentQuestionIndex];
 
     // Fetch quiz data from the API
     useEffect(() => {
@@ -79,8 +81,6 @@ const Quiz = () => {
         return <div>Loading...</div>;
     }
 
-    const currentQuestion = allQuestions[currentQuestionIndex];
-
     return (
         <div className="">
             {/* total questions */}
@@ -94,7 +94,7 @@ const Quiz = () => {
                 </div>
             </div>
 
-            <div className="container mx-auto p-6 rounded shadow-md mt-12">
+            <div className="max-w-screen-xl mx-auto p-6 rounded shadow-md my-12">
                 {currentQuestionIndex < allQuestions.length ? (
                     <>
                         <h2 className="text-xl font-semibold mb-4">
@@ -120,7 +120,7 @@ const Quiz = () => {
                         <div className="mt-4">
                             <button
                                 onClick={handleNextQuestion}
-                                className="bg-primary text-white py-2 px-4 rounded"
+                                className="btn btn-soft btn-primary text-lg"
                             >
                                 Next Question
                             </button>
@@ -145,9 +145,17 @@ const Quiz = () => {
                                 Wrong Answers: {wrongAnswers}
                             </p>
 
+                            <p className="text-xl mt-4">
+                                For correct answer you get{" "}
+                                {quizData.correct_answer_marks} marks
+                                <br />
+                                For wrong answer you get{" "}
+                                {quizData.negative_marks} marks
+                            </p>
+
                             <button
                                 onClick={handleShowSolutions}
-                                className="btn btn-soft btn-primary text-lg mt-4"
+                                className="btn btn-soft btn-primary text-lg my-4"
                             >
                                 Show Solutions
                             </button>
@@ -155,6 +163,7 @@ const Quiz = () => {
                         {/* show solutions */}
                         {showSolutions && (
                             <div className="mt-4">
+                                <hr className="pb-4" />
                                 <h2 className="text-2xl text-green-600 font-semibold mb-4 text-center underline">
                                     Solutions
                                 </h2>
@@ -175,15 +184,17 @@ const Quiz = () => {
                                         {/* detailed answer btn*/}
                                         <Link
                                             to={`/quiz/${question.id}`}
-                                            className="btn btn-soft btn-info text-lg flex items-center gap-2 w-max mt-2"
+                                            className="text-lg text-blue-500 flex items-center gap-2 w-max mt-2 hover:underline"
                                         >
-                                            View Detailed Solution
-                                            <TbArrowRightToArc size={22} />
+                                            Detailed Solution
+                                            <IoIosArrowDropright size={22} />
                                         </Link>
 
                                         {selectedAnswer !== null && (
                                             <p>Your Answer: {selectedAnswer}</p>
                                         )}
+
+                                        <hr className="mt-4 text-gray-300" />
                                     </div>
                                 ))}
                             </div>

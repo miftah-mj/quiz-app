@@ -20,14 +20,6 @@ const Navbar = () => {
             >
                 Quiz
             </NavLink>
-            <NavLink
-                to="/results"
-                className={({ isActive }) =>
-                    `tab text-lg ${isActive ? "text-primary" : ""}`
-                }
-            >
-                Resuls
-            </NavLink>
         </>
     );
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { AiOutlineRead } from "react-icons/ai";
 import { BiSolidBookContent } from "react-icons/bi";
+import { LuPencilLine } from "react-icons/lu";
 import { useParams } from "react-router";
 
 const DetailedSolutions = () => {
@@ -45,9 +46,15 @@ const DetailedSolutions = () => {
     // Join the content sections into a single string
     const contentSections = quiz.reading_material.content_sections.join("");
 
+    // Practice materials
+    const practiceMaterialsContent =
+        quiz.reading_material.practice_material.content.join("");
+    const practiceMaterialsKeywords =
+        quiz.reading_material.practice_material.keywords;
+
     return (
         <div className="max-w-screen-xl mx-auto py-12 px-4 lg:px-0">
-            <h1 className="text-2xl font-bold text-center mb-4">
+            <h1 className="text-2xl text-primary font-bold text-center mb-4">
                 {quiz.topic}
             </h1>
             <h2>{quiz.detailed_solution}</h2>
@@ -58,18 +65,18 @@ const DetailedSolutions = () => {
                     <AiOutlineRead size={22} />
                     Reading Materials
                 </h2>
-                <ul className="list-disc list-inside">
+                <div className="flex gap-3 text-blue-600">
                     {keywords.map((keyword, index) => (
-                        <li key={index}>{keyword}</li>
+                        <p key={index}>#{keyword}</p>
                     ))}
-                </ul>
+                </div>
             </div>
 
             {/* Content */}
             <div className="mb-8">
                 <h2 className="text-xl font-semibold flex items-center gap-2 mb-4">
                     <BiSolidBookContent size={22} />
-                    Content
+                    Contents
                 </h2>
                 <div
                     className="flex flex-col space-y-4"
@@ -77,6 +84,25 @@ const DetailedSolutions = () => {
                         __html: contentSections,
                     }}
                 ></div>
+            </div>
+
+            {/* Practice Materials */}
+            <div className="mb-8">
+                <h2 className="text-xl font-semibold flex items-center gap-2 mb-4">
+                    <LuPencilLine size={22} />
+                    Practice Materials
+                </h2>
+                <div
+                    className="flex flex-col space-y-4"
+                    dangerouslySetInnerHTML={{
+                        __html: practiceMaterialsContent,
+                    }}
+                ></div>
+                <div className="flex gap-3 text-blue-600 mt-4">
+                    {practiceMaterialsKeywords.map((keyword, index) => (
+                        <p key={index}>#{keyword}</p>
+                    ))}
+                </div>
             </div>
         </div>
     );
