@@ -43,4 +43,8 @@ The Quiz App is an interactive application that allows users to take quizzes on 
 
 ## Video Walkthrough
 
-[!Video Walkthrough](https://drive.google.com/file/d/1kZLlSbGhuM1mGHtJmXc3qrnMQfIHSosY/view?usp=sharing)
+<!-- [![Video Walkthrough](/public/homepage.png)](https://drive.google.com/file/d/1kZLlSbGhuM1mGHtJmXc3qrnMQfIHSosY/view?usp=sharing) -->
+
+<video width="600" controls>
+  <source src="/public/quiz-app.mp4" type="video/mp4">
+</video>
