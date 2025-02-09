@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { TbArrowRightToArc } from "react-icons/tb";
 
 const Quiz = () => {
     const [quizData, setQuizData] = useState([]);
@@ -8,6 +9,7 @@ const Quiz = () => {
     const [score, setScore] = useState(0);
     const [correctAnswers, setCorrectAnswers] = useState(0);
     const [wrongAnswers, setWrongAnswers] = useState(0);
+    const [showSolutions, setShowSolutions] = useState(false);
 
     // Fetch quiz data from the API
     useEffect(() => {
@@ -68,6 +70,10 @@ const Quiz = () => {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
     };
 
+    const handleShowSolutions = () => {
+        setShowSolutions(true);
+    };
+
     if (allQuestions.length === 0) {
         return <div>Loading...</div>;
     }
@@ -120,8 +126,10 @@ const Quiz = () => {
                         </div>
                     </>
                 ) : (
-                    <div className="text-lg font-semibold text-primary">
-                        Quiz Completed!
+                    <div className="text-lg">
+                        <h3 className="text-2xl font-semibold text-blue-500">
+                            Quiz Completed!
+                        </h3>
                         <div className="mt-4">
                             {/* total score */}
                             <p className="text-xl">
@@ -135,6 +143,45 @@ const Quiz = () => {
                             <p className="text-xl text-red-600">
                                 Wrong Answers: {wrongAnswers}
                             </p>
+
+                            <button
+                                onClick={handleShowSolutions}
+                                className="bg-primary text-white py-2 px-4 rounded mt-4"
+                            >
+                                Show Solutions
+                            </button>
+                        </div>
+                        {/* show solutions */}
+                        {showSolutions && (
+                            <div className="mt-4">
+                                <h2 className="text-2xl text-green-600 font-semibold mb-4 text-center underline">
+                                    Solutions
+                                </h2>
+                                {allQuestions.map((question, index) => (
+                                    <div key={index} className="mb-4">
+                                        <h3 className="font-semibold">
+                                            {question.description}
+                                        </h3>
+                                        <p>
+                                            Correct Answer:{" "}
+                                            {
+                                                question.options.find(
+                                                    (option) =>
+                                                        option.is_correct
+                                                ).description
+                                            }
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+
+                        {/* view detailed solution button */}
+                        <div className="mt-4">
+                            <button className="bg-primary text-white py-2 px-4 rounded flex items-center gap-2">
+                                View Detailed Solution
+                                <TbArrowRightToArc size={22} />
+                            </button>
                         </div>
                     </div>
                 )}
